@@ -1,9 +1,6 @@
 ﻿#include <iostream>
 using namespace std;
 
-
-
-
 class Point{
 
 protected:
@@ -144,6 +141,4 @@ int main()
 
 	delete t1;
 	delete t2;
-	printf("Hello, World!");
-	printf("Hello, World!");
 }
