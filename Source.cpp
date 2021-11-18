@@ -145,5 +145,6 @@ int main()
 
 	delete t1;
 	delete t2;
+	printf("Hello, World!");
 
 }
