@@ -1,5 +1,4 @@
-#include <iostream>
-#pragma execution_character_set("utf-8")
+п»ї#include <iostream>
 using namespace std;
 
 
@@ -11,22 +10,22 @@ protected:
 	int x;
 	int y;
 public:
-	Point(){//конструктор по умолчанию
+	Point(){//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		printf("Point()\n");
 		x = 0;
 		y = 0;
 	}
-	Point(int x, int y) {//конструктор с параметрами
+	Point(int x, int y) {//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 		printf("Point(int x, int y)\n");
 		this->x = x;
 		this->y = y;
 	}
-	Point(const Point& p) {//копирующий конструктор
+	Point(const Point& p) {//РєРѕРїРёСЂСѓСЋС‰РёР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		printf("Point(const Point& p))\n");
 		x = p.x;
 		y = p.y;
 	}
-	virtual~Point() {//деструктор
+	virtual~Point() {//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 		printf("%d, %d\n", x, y);
 		printf("~Point()\n");
 	}
@@ -37,32 +36,32 @@ public:
 	void reset();
 };
 
-void Point::reset() {//реализация метода сразу после определения 
+void Point::reset() {//СЂРµР°Р»РёР·Р°С†РёСЏ РјРµС‚РѕРґР° СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ РѕРїСЂРµРґРµР»РµРЅРёСЏ 
 	x = 0;
 	y = 0;
 }
 
 
-class Point3D : public Point {//класс наследник 
+class Point3D : public Point {//РєР»Р°СЃСЃ РЅР°СЃР»РµРґРЅРёРє 
 
 protected:
 	int z;
 public:
-	Point3D() :Point(){//конструктор по умолчанию
+	Point3D() :Point(){//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		printf("Point3D()\n");
 		z = 0;
 	}
-	Point3D(int x, int y, int z) : Point(x, y){//конструктор с параметрами
+	Point3D(int x, int y, int z) : Point(x, y){//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 		printf("Point3D(int x, int y, int z)\n");
 		this->z = z;
 	}
-	Point3D(const Point3D& p) {//копирующий конструктор
+	Point3D(const Point3D& p) {//РєРѕРїРёСЂСѓСЋС‰РёР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		printf("Point3D(const Point& p))\n");
 		x = p.x;
 		y = p.y;
 		z = p.z;
 	}
-	~Point3D() {//деструктор
+	~Point3D() {//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 		printf("%d, %d, %d\n", x, y, z);
 		printf("~Point3D()\n");
 	}
@@ -73,30 +72,30 @@ public:
 
 class Triangle {
 
-protected://композиция
+protected://РєРѕРјРїРѕР·РёС†РёСЏ
 	Point* p1;
 	Point* p2;
 	Point* p3;
 public:
-	Triangle(){//конструктор по умолчанию
+	Triangle(){//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		printf("Triangle()\n");
 		p1 = new Point();
 		p2 = new Point();
 		p3 = new Point();
 	}
-	Triangle(int x1, int y1, int x2, int y2, int x3, int y3){//конструктор с параметрами
+	Triangle(int x1, int y1, int x2, int y2, int x3, int y3){//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 		printf("Triangle(int x1, int y1, int x2, int y2, int x3, int y3)\n");
 		p1 = new Point(x1, y1);
 		p2 = new Point(x2, y2);
 		p3 = new Point(x3, y3);
 	}
-	Triangle(const Triangle& t) {//копирующий конструктор
+	Triangle(const Triangle& t) {//РєРѕРїРёСЂСѓСЋС‰РёР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		printf("Triangle(const Triangle& p))\n");
 		p1 = new Point(*t.p1);
 		p2 = new Point(*t.p2);
 		p3 = new Point(*t.p3);
 	}
-	~Triangle() {//деструктор
+	~Triangle() {//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 		delete p1;
 		delete p2;
 		delete p3;
@@ -106,18 +105,18 @@ public:
 
 int main()
 {
-	{//статическое создание
+	{//СЃС‚Р°С‚РёС‡РµСЃРєРѕРµ СЃРѕР·РґР°РЅРёРµ
 		Point p1;
 		Point p2(5, 10);
 		Point p3(p2);
 	}
 
 	printf("\n");
-	Point* p4=new Point();// динамическое создание 
+	Point* p4=new Point();// РґРёРЅР°РјРёС‡РµСЃРєРѕРµ СЃРѕР·РґР°РЅРёРµ 
 	Point* p5=new Point(5, 10);
 	Point* p6=new Point(*p5);
 	
-	delete p4;// уничтожение динамически созданных объектов
+	delete p4;// СѓРЅРёС‡С‚РѕР¶РµРЅРёРµ РґРёРЅР°РјРёС‡РµСЃРєРё СЃРѕР·РґР°РЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ
 	delete p5;
 	delete p6;
 
@@ -145,5 +144,6 @@ int main()
 
 	delete t1;
 	delete t2;
+	printf("Hello, World!");
 	printf("Hello, World!");
 }
