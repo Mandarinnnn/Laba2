@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 using namespace std;
 
+
+
 class Point{
 
 protected:
@@ -31,12 +33,16 @@ public:
 		y = y + _x;
 	}
 	void reset();
+	virtual void ShowName() {
+		printf("Point\n");
+	}
 };
 
 void Point::reset() {//реализация метода сразу после определения 
 	x = 0;
 	y = 0;
 }
+
 
 
 class Point3D : public Point {//класс наследник 
@@ -65,6 +71,10 @@ public:
 	void changeZ(int z) {
 		this->z = z;
 	}
+	void ShowName() {
+		printf("Point3D\n");
+	}
+
 };
 
 class Triangle {
@@ -141,4 +151,12 @@ int main()
 
 	delete t1;
 	delete t2;
+	printf("\n");
+	printf("\n");
+	printf("\n");
+
+	Point* k = new Point3D();
+	k->ShowName();
+	delete k;
+
 }
