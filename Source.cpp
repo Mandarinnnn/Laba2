@@ -32,10 +32,10 @@ public:
 		x = x + _x;
 		y = y + _x;
 	}
-	void reset();
 	virtual void ShowName() {
 		printf("Point\n");
 	}
+	void reset();
 };
 
 void Point::reset() {//реализация метода сразу после определения 
