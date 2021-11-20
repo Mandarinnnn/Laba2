@@ -29,6 +29,7 @@ public:
 		printf("~Point()\n");
 	}
 	void move(int _x, int _y) {
+		printf("метод move() \n");
 		x = x + _x;
 		y = y + _x;
 	}
@@ -39,6 +40,7 @@ public:
 };
 
 void Point::reset() {//реализация метода сразу после определения 
+	printf("метод reset() \n");
 	x = 0;
 	y = 0;
 }
@@ -112,51 +114,50 @@ public:
 
 int main()
 {
-	{//статическое создание
+	setlocale(LC_ALL, "ru");
+
+	printf("Статическое создание:\n");
+	{
 		Point p1;
 		Point p2(5, 10);
 		Point p3(p2);
+		printf("\nУничтожение статически созданных объектов:\n");
 	}
 
-	printf("\n");
-	Point* p4=new Point();// динамическое создание 
+	printf("\nДинамическое создание:\n");
+	Point* p4=new Point();
 	Point* p5=new Point(5, 10);
 	Point* p6=new Point(*p5);
-	
-	delete p4;// уничтожение динамически созданных объектов
+
+	printf("\nУничтожение динамически созданных объектов:\n");
+	delete p4;
 	delete p5;
 	delete p6;
 
+
 	printf("\n");
 	Point* p7 = new Point(10, 12);
+	printf("Вызов методов: \n");
 	p7->reset();
 	p7->move(5, 5);
+	printf("Уничтожение объекта:\n");
 	delete p7;
 
-	printf("\n");
+	printf("\nпомещение объекта наследника в переменную-указатель того же типа:\n");
 	Point3D* p8 = new Point3D(1,2,3);
+	printf("\nУничтожение объекта:\n");
 	delete p8;
 
-	printf("\n");
+	printf("\nпомещение объекта наследника в переменную-указатель родителя:\n");
 	Point* p9 = new Point3D(1, 2, 3);
-	Point3D* p10 = new Point3D(1, 2, 3);
-	printf("\n");
+	printf("\nУничтожение объекта:\n");
 	delete p9;
-	printf("\n");
-	delete p10;
 
-	printf("\n");
+	printf("\nкомпозиция:\n");
 	Triangle* t1 = new Triangle;
 	Triangle* t2 = new Triangle(*t1);
 
+	printf("\nУничтожение объекта:\n");
 	delete t1;
 	delete t2;
-	printf("\n");
-	printf("\n");
-	printf("\n");
-
-	Point* k = new Point3D();
-	k->ShowName();
-	delete k;
-
 }
